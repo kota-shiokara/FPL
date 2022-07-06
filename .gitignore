@@ -3,10 +3,11 @@
 
 ### Intellij ###/library
 /reference
-/lib
+/library
 /gradle
 .DS_Store
 /.idea
+.gradle
 
 
 # Covers JetBrains IDEs: IntelliJ, RubyMine, PhpStorm, AppCode, PyCharm, CLion, Android Studio, WebStorm and Rider
