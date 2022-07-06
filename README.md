@@ -2,7 +2,12 @@
 This is my library for Processing
 
 ## Usage
-After building with "[Build](#build)", copy the libraries in `library/tmp` to `processing/libraries` or  a folder called `code` created in the sketch folder.
+After building with "[Build](#build)", copy the libraries in `library/tmp` to `processing/libraries` or  a folder called `code` created in the sketch folder.  
+If you want detailed explanation of API, please read [javadoc](https://kota-shiokara.github.io/FPL/javadoc/)!
+
+## Link
+- [javadoc](https://kota-shiokara.github.io/FPL/javadoc/)
+- [Test Report](https://kota-shiokara.github.io/FPL/reports/)
 
 ## Build
 ```shell
@@ -10,8 +15,22 @@ After building with "[Build](#build)", copy the libraries in `library/tmp` to `p
 ```
 
 ## Generate Javadoc
+Edit `build.gradle`
+```build.gradle
+//    implementation group: 'org.processing', name: 'core', version: '3.3.7'
+
+                ↓
+
+    implementation group: 'org.processing', name: 'core', version: '3.3.7'
+```
+After it, This command
 ```shell
 ./gradlew javadoc
+```
+
+## Test
+```shell
+./gradlew test
 ```
 
 ## Author

@@ -16,6 +16,7 @@ sourceCompatibility = 1.8
 javadoc {
     options.charSet = 'UTF-8'
     options.encoding = 'UTF-8'
+    destinationDir = file("docs/javadoc")
 }
 
 repositories {
@@ -27,7 +28,7 @@ configurations {
 }
 
 sourceSets {
-    main {
+    main{
         compileClasspath += configurations.provided
     }
 }
@@ -36,10 +37,21 @@ dependencies {
     // https://mvnrepository.com/artifact/org.processing/core
     provided group: 'org.processing', name: 'core', version: '3.3.7'
 
+    // when generate Javadoc
+//    implementation group: 'org.processing', name: 'core', version: '3.3.7'
+
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.0'
+    testImplementation group: 'org.processing', name: 'core', version: '3.3.7'
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.7.0'
 }
 
+compileJava.options.encoding = 'UTF-8'
+tasks.withType(JavaCompile) {
+    options.encoding = 'UTF-8'
+}
+
 test {
+    systemProperty "file.encoding", "utf-8"
     useJUnitPlatform()
+    reports.html.outputLocation = file("docs/reports")
 }
