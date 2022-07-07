@@ -27,6 +27,8 @@ jobs:
         run: |
           sed -e "40d" build.gradle
           cat build.gradle
+      - name: Test
+        run: ./gradlew test
       - name: Count changes
         id: changes
         run: |
