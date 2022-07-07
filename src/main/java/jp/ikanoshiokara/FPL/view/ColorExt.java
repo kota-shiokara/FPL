@@ -12,10 +12,10 @@ import java.util.Random;
  */
 public class ColorExt {
     /**
-     * 引数に入れたPAppletのcolorModeに合ったcolorを生成する
+     * 引数に入れたPAppletのcolorModeに合ったcolorを生成する<br>
      *
-     * Sample:
-     *  color c = ColorExt.generateColor(this);
+     * Sample:<br>
+     *  color c = ColorExt.generateColor(this);<br>
      *  println("R: " + red(c) + " G: " + green(c) + " B: " + blue(c));
      *
      * @param applet PApplet
