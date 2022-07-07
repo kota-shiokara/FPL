@@ -1,1 +1,1 @@
-typeSearchIndex = [{"p":"jp.ikanoshiokara.FPL.view","l":"Color"},{"l":"すべてのクラス","u":"allclasses-index.html"}];updateSearchResults();
+typeSearchIndex = [{"p":"jp.ikanoshiokara.FPL.view","l":"ColorExt"},{"l":"すべてのクラス","u":"allclasses-index.html"}];updateSearchResults();

@@ -10,9 +10,13 @@ import java.util.Random;
  * @author kota-shiokara
  * @version 1.0
  */
-public class Color {
+public class ColorExt {
     /**
      * 引数に入れたPAppletのcolorModeに合ったcolorを生成する
+     *
+     * Sample:
+     *  color c = ColorExt.generateColor(this);
+     *  println("R: " + red(c) + " G: " + green(c) + " B: " + blue(c));
      *
      * @param applet PApplet
      * @return int

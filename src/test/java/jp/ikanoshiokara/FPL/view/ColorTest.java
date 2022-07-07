@@ -21,7 +21,7 @@ public class ColorTest {
             testApplet.g.colorMode = PConstants.RGB;
 
             // run
-            int result = Color.generateColor(testApplet);
+            int result = ColorExt.generateColor(testApplet);
             boolean red = 0 <= testApplet.red(result) && testApplet.red(result) <= testApplet.g.colorModeX;
             boolean green = 0 <= testApplet.green(result) && testApplet.green(result) <= testApplet.g.colorModeY;
             boolean blue = 0 <= testApplet.blue(result) && testApplet.blue(result) <= testApplet.g.colorModeZ;
@@ -40,7 +40,7 @@ public class ColorTest {
             testApplet.g.colorMode = PConstants.RGB;
 
             // run
-            int result = Color.generateColor(testApplet);
+            int result = ColorExt.generateColor(testApplet);
             boolean red = 0 > testApplet.red(result) && testApplet.red(result) > testApplet.g.colorModeX;
             boolean green = 0 > testApplet.green(result) && testApplet.green(result) > testApplet.g.colorModeY;
             boolean blue = 0 > testApplet.blue(result) && testApplet.blue(result) > testApplet.g.colorModeZ;
