@@ -1,1 +1,0 @@
-memberSearchIndex = [{"p":"jp.ikanoshiokara.FPL.view","c":"ColorExt","l":"ColorExt()","u":"%3Cinit%3E()"},{"p":"jp.ikanoshiokara.FPL.view","c":"ColorExt","l":"generateColor(PApplet)","u":"generateColor(processing.core.PApplet)"}];updateSearchResults();
