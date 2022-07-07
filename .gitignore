@@ -4,11 +4,9 @@
 ### Intellij ###/library
 /reference
 /library
-/gradle
 .DS_Store
 /.idea
 .gradle
-!/gradle/wrapper/gradle-wrapper.jar
 
 
 # Covers JetBrains IDEs: IntelliJ, RubyMine, PhpStorm, AppCode, PyCharm, CLion, Android Studio, WebStorm and Rider
