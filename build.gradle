@@ -9,7 +9,6 @@ version '0.0.1'
 
 buildDir='library'
 libsDirName='./'
-docsDirName='../reference'
 
 sourceCompatibility = 1.8
 
@@ -38,7 +37,7 @@ dependencies {
     provided group: 'org.processing', name: 'core', version: '3.3.7'
 
     // when generate Javadoc
-//    implementation group: 'org.processing', name: 'core', version: '3.3.7'
+    // implementation group: 'org.processing', name: 'core', version: '3.3.7'
 
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.0'
     testImplementation group: 'org.processing', name: 'core', version: '3.3.7'
