@@ -5,7 +5,7 @@ plugins {
 defaultTasks 'clean', 'build'
 
 group 'jp.ikanoshiokara'
-version '0.0.2'
+version currentVersion
 
 buildDir='library'
 libsDirName='./'
