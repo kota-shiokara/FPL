@@ -42,3 +42,14 @@ jobs:
           git commit -m "Update javadoc"
           git push
         if: steps.changes.outputs.count > 0
+      - name: Check Version
+        id: checks
+        run: |
+          echo "::set-output name=version::release/v$(cat gradle.properties | cut -d '=' -f 2)"
+          echo "Version is ${{ steps.checks.outputs.version }}"
+          echo "::set-output name=isNewVersion::$(git branch -a | grep ${{ steps.checks.outputs.version }} | wc -l)"
+          echo "isNewVersion is ${{ steps.checks.outputs.isNewVersion }}"
+      - name: Release New Version
+        run: |
+          git push origin ${{ steps.checks.outputs.version }}
+        if: steps.checks.outputs.isNewVersion == 0
