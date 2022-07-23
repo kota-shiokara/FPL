@@ -45,12 +45,13 @@ jobs:
       - name: Check Version
         id: checks
         run: |
-          echo "::set-output name=version::release/v$(cat gradle.properties | cut -d '=' -f 2)"
-          echo "Version is ${{ steps.checks.outputs.version }}"
-          echo "::set-output name=isNewVersion::$(git branch -a | grep ${{ steps.checks.outputs.version }} | wc -l)"
+          echo "::set-output name=releaseBranchName::release/v$(cat gradle.properties | cut -d '=' -f 2)"
+          echo "Version is ${{ steps.checks.outputs.releaseBranchName }}"
+          echo "::set-output name=isNewVersion::$(git branch -a | grep ${{ steps.checks.outputs.releaseBranchName }} | wc -l)"
           echo "isNewVersion is ${{ steps.checks.outputs.isNewVersion }}"
       - name: Release New Version
         run: |
-          git commit -m "Release ${{ steps.checks.outputs.version }}"
-          git push origin ${{ steps.checks.outputs.version }}
+          git checkout -b ${{ steps.checks.outputs.releaseBranchName }}
+          git push origin ${{ steps.checks.outputs.releaseBranchName }}
+          git checkout -
         if: steps.checks.outputs.isNewVersion == 0
