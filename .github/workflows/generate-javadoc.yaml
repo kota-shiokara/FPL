@@ -51,5 +51,6 @@ jobs:
           echo "isNewVersion is ${{ steps.checks.outputs.isNewVersion }}"
       - name: Release New Version
         run: |
+          git commit -m "Release ${{ steps.checks.outputs.version }}"
           git push origin ${{ steps.checks.outputs.version }}
         if: steps.checks.outputs.isNewVersion == 0
