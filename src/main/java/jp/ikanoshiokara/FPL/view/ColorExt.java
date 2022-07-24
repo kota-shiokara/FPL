@@ -3,7 +3,6 @@ package jp.ikanoshiokara.FPL.view;
 import processing.core.*;
 import java.util.Random;
 
-
 /**
  * Colorに関するクラス<br>
  *
@@ -22,26 +21,8 @@ public class ColorExt {
      * @return int
      */
     public static int generateColor(PApplet applet) {
-        int colorMode = applet.g.colorMode;
-
-        Random rand = new Random();
-        if(colorMode == PApplet.HSB) {
-            // HSB(360, 100, 100)
-            float h = PApplet.map(rand.nextFloat(), 0f, 1f, 0f, applet.g.colorModeX);
-            float s = PApplet.map(rand.nextFloat(), 0f, 1f, 0f, applet.g.colorModeY);
-            float b = PApplet.map(rand.nextFloat(), 0f, 1f, 0f, applet.g.colorModeZ);
-            float a = PApplet.map(rand.nextFloat(), 0f, 1f, 0f, applet.g.colorModeA);
-
-            return applet.color(h, s, b, a);
-        } else {
-            // RGB or other
-            int r = (int) PApplet.map(rand.nextFloat(), 0f, 1f, 0f, applet.g.colorModeX);
-            int g = (int) PApplet.map(rand.nextFloat(), 0f, 1f, 0f, applet.g.colorModeY);
-            int b = (int) PApplet.map(rand.nextFloat(), 0f, 1f, 0f, applet.g.colorModeZ);
-            int a = (int) PApplet.map(rand.nextFloat(), 0f, 1f, 0f, applet.g.colorModeA);
-
-            return applet.color(r, g, b, a);
-        }
+        PGraphics pg = applet.g;
+        return generateColor(pg);
     }
 
     /**
@@ -61,20 +42,24 @@ public class ColorExt {
         Random rand = new Random();
         if(colorMode == PApplet.HSB) {
             // HSB(360, 100, 100)
-            float h = PApplet.map(rand.nextFloat(), 0f, 1f, 0f, pg.colorModeX);
-            float s = PApplet.map(rand.nextFloat(), 0f, 1f, 0f, pg.colorModeY);
-            float b = PApplet.map(rand.nextFloat(), 0f, 1f, 0f, pg.colorModeZ);
-            float a = PApplet.map(rand.nextFloat(), 0f, 1f, 0f, pg.colorModeA);
+            float h = getColorValue(rand, pg.colorModeX);
+            float s = getColorValue(rand, pg.colorModeY);
+            float b = getColorValue(rand, pg.colorModeZ);
+            float a = getColorValue(rand, pg.colorModeA);
 
-            return new PApplet().color(h, s, b, a);
+            return pg.color(h, s, b, a);
         } else {
             // RGB or other
-            int r = (int) PApplet.map(rand.nextFloat(), 0f, 1f, 0f, pg.colorModeX);
-            int g = (int) PApplet.map(rand.nextFloat(), 0f, 1f, 0f, pg.colorModeY);
-            int b = (int) PApplet.map(rand.nextFloat(), 0f, 1f, 0f, pg.colorModeZ);
-            int a = (int) PApplet.map(rand.nextFloat(), 0f, 1f, 0f, pg.colorModeA);
+            int r = (int) getColorValue(rand, pg.colorModeX);
+            int g = (int) getColorValue(rand, pg.colorModeY);
+            int b = (int) getColorValue(rand, pg.colorModeZ);
+            int a = (int) getColorValue(rand, pg.colorModeA);
 
-            return new PApplet().color(r, g, b, a);
+            return pg.color(r, g, b, a);
         }
+    }
+
+    private static float getColorValue(Random rand, float colorValue) {
+        return PApplet.map(rand.nextFloat(), 0f, 1f, 0f, colorValue);
     }
 }
