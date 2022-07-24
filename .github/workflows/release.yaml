@@ -112,6 +112,3 @@ jobs:
           asset_path: ./library/FPL-${{ steps.version.outputs.VERSION }}.jar
           asset_name: FPL-${{ steps.version.outputs.VERSION }}.jar
           asset_content_type: application/zip
-      - name: Branch Return
-        run: |
-          git checkout -
