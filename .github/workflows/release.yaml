@@ -78,7 +78,7 @@ jobs:
       - name: Get Version
         id: version
         run: |
-          echo ::set-output name=VERSION::$(awk -F'v' '{print $2}' ${{ needs.build.outputs.releaseBranchName }})
+          echo ::set-output name=VERSION::$(echo ${{ needs.build.outputs.releaseBranchName }} | awk -F'v' '{print $2}' )
           echo "Version is v${{ steps.version.outputs.VERSION }}"
       - name: Upload jar file
         uses: actions/upload-artifact@v2
